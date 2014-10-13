@@ -15,6 +15,21 @@ import sys
 import argparse
 import time
 
+def make_dir():
+    path = os.path.abspath('.')
+    print(path)
+    try:
+        os.mkdir(path + '\\tmp')
+        tmp = path + '\\tmp'
+        os.mkdir(tmp + '\\jpg')
+        os.mkdir(tmp + '\\gif')
+        os.mkdir(tmp + '\\doc')
+        os.mkdir(tmp + '\\mov_wav')
+        os.mkdir(tmp + '\\pdf')
+        os.mkdir(tmp + '\\png')
+    except:
+        pass
+make_dir()
 
 def create_log(): #create txt files log
     create_tree = open(os.path.abspath('.') + '\\tmp\\log_tree.txt', 'w')
@@ -23,7 +38,9 @@ def create_log(): #create txt files log
     create_png = open(os.path.abspath('.') + '\\tmp\\log_png.txt', 'w')
     create_docs = open(os.path.abspath('.') + '\\tmp\\log_docs.txt', 'w')
     create_docs = open(os.path.abspath('.') + '\\tmp\\log_pdf.txt', 'w')
+    
 create_log()
+
 
 clear = lambda: os.system('cls')
 clear()
