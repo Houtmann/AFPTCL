@@ -6,6 +6,7 @@ from tempfile import mkstemp
 import glob
 import shutil
 import os.path
+import time
 
 def search_jpeg():
      
@@ -15,14 +16,14 @@ def search_jpeg():
     
     for i in tree_txt.readlines():
             if i:
-                    try:
-                        file = open(i.strip('\n'), 'rb+', buffering=500)
-                        if jpeg in file.read(5):
-                            list_jpg.append(i)
-                            log_jpg = open('tmp/log_jpg.txt', 'a')
-                            log_jpg.write(i)
-                    except:
-                        pass
+                try:
+                    file = open(i.strip('\n'), 'rb+', buffering=500)
+                    if jpeg in file.read(5):
+                        list_jpg.append(i)
+                        log_jpg = open('tmp/log_jpg.txt', 'a')
+                        log_jpg.write(i)
+                except:
+                    pass
        
     result = open('tmp/log_jpg.txt', 'r')
 
