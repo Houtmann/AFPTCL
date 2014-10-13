@@ -105,6 +105,8 @@ print('Forensics Windows registry...')
 print('')
 print('Creating registre.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))                                                                               
 boot(args.p)
+boot_2(args.p)
+usb_1(args.p)
 
 os.system('pause')
 
