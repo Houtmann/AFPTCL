@@ -64,7 +64,7 @@ print('Starting disk scan...')
 print('')
 print('Creating log_tree.txt in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 
-scan(args.p) #Complete scan of disk
+#scan(args.p) #Complete scan of disk
 
 print('')
 print('')
@@ -73,9 +73,9 @@ print('')
 print('Creating log_jpg, log_gif, log_png in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 print('')
 
-search_jpeg()
-search_gif()
-search_png()
+#search_jpeg()
+#search_gif()
+#search_png()
 
 print('')
 print('')
@@ -83,13 +83,13 @@ print('Search documents files...')
 print('')
 print('Creating log_docs.txt in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 
-search_doc()
-search_pdf()
+#search_doc()
+#search_pdf()
 print('')
 print('')
 print('Search videos files...')
 print('Creating log_videos.txt in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
-search_videos()
+#search_videos()
 if args.cv:
     copy_files()
 print('')
@@ -97,11 +97,14 @@ print('')
 print('Forensics Mozilla Firefox...')
 print('')
 print('Creating moz_ccokies.html and moz_forms.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))                                                                        
-
 moz_cookies()
 moz_form()
-                                                                              
-
+print('')
+print('')
+print('Forensics Windows registry...')
+print('')
+print('Creating registre.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))                                                                               
+boot(args.p)
 
 os.system('pause')
 

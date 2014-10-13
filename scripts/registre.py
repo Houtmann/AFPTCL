@@ -4,8 +4,6 @@ import sqlite3
 import re
 import sys
 
-eldem = "Elements de démarrage du systeme : \n\n"
-elusb = "Clés USB et Derniere utilisation : \n\n"
 
 def user(adress):
     
@@ -20,13 +18,32 @@ def user(adress):
     
 
 def boot(adress):
-    
+    report = open('registre.html', 'a')
+    report.write('''<html>
+        <head>
+	<title>Registre Windows</title>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        </head>
+        <body>
+        <div id="header">Registre windows</div>
+        <div id="content">
+        <table>
+        <thead>
+	<tr>
+		<th>Software On Boot</th>
+		
+		
+	</tr>
+</thead>
+	''')
     file = []      
-    registry = Registry.Registry(adress.strip("""\\""") + "/Windows/System32/config/SOFTWARE" )
+    registry = Registry.Registry(adress + "Windows/System32/config/SOFTWARE" )
     key = registry.open("""Microsoft\\Windows\\CurrentVersion\\Run\\""")    
     for v in key.values():
             file.append(v.value()+ "\n")
-            print(v.value())
+            report.write('<tr><td>{0}'.format(v.value()))
+    report.write('''</table></div></body></html>''')
     return file
 
 def boot_2(adress):
