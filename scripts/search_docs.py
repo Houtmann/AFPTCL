@@ -7,17 +7,8 @@ import glob
 import shutil
 import os.path
 
-def sumfile(filePath):
-	fileObj = open(filePath, 'rb')
-	m = hashlib.md5()
-	while True:
-		d = fileObj.read(50000)
-		if not d:
-			break
-		m.update(d)
-	return m.hexdigest()
 
-def search_doc():
+def search_docs(arg):
      
     doc = b'PK' #Signature du zip, ods...
     list_doc = []
@@ -29,19 +20,19 @@ def search_doc():
                         file = open(i.strip('\n'), 'rb+', buffering=500)
                         if doc in file.read(3):
                             list_doc.append(i)
-                            log_doc = open('tmp/log_doc.txt', 'a')
+                            log_doc = open('tmp/log_docs.txt', 'a')
                             log_doc.write(i)
                     except:
                         pass
        
-    result = open('tmp/log_doc.txt', 'r')
-
-    for a in result:
-        dest = '/tmp/doc/' #Dossier de destination des liens sym pour les docs
-        if 'linux' in sys.platform:
+    result = open('tmp/log_docs.txt', 'r')
+    if arg == True:    
+        for a in result:
+            dest = '/tmp/doc/' #Dossier de destination des liens sym pour les docs
+            if 'linux' in sys.platform:
                 os.system(""" ln -s "{0}" "{1}" """.format(a.strip('\n'), dest )) #Crée des liens symboliques dans le dossier 
                 
-        elif 'win' in sys.platform:
+            elif 'win' in sys.platform:
                 tempath = os.path.abspath('.')
                 dest2 = tempath.strip('scripts')
                 dest3 = '\\tmp\\docs\\'

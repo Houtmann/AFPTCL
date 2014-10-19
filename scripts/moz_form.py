@@ -22,6 +22,8 @@ def moz_form():
             for row in c:
                 list_field.append(row[0])
                 field_valeur.append(row[1])
+        else:
+            pass
                             
             
                 
