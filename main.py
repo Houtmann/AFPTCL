@@ -71,14 +71,14 @@ if args.sf:
     docs = threading.Thread(target=search_docs, args=(args.cv,))
     pdf = threading.Thread(target=search_pdf, args=(args.cv,))
     videos = threading.Thread(target=search_videos)
-    moffice = threading.Thread(target=search_moffice(args.cv,))
+    #moffice = threading.Thread(target=search_moffice(args.cv,))
     jpg.start()
     gif.start()
     png.start()
     docs.start()
     pdf.start()
     videos.start()
-    moffice.start()
+    #moffice.start()
     #search_jpeg(args.cv)
     #search_gif(args.cv)
     #search_png(args.cv)
@@ -91,8 +91,8 @@ if args.sf:
     docs.join()
     pdf.join()
     videos.join()
-    moffice.join()
-
+    #moffice.join()
+    search_moffice()
    
      
 if args.cv:

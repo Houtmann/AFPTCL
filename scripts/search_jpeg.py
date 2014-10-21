@@ -14,7 +14,7 @@ def search_jpeg(arg):
                 try:
                     file = open(i.strip('\n'), 'rb', buffering = 1)
                     
-                    if sign in file.read(5):
+                    if jpeg in file.read(5):
                         log_jpg = open('tmp/log_jpg.txt', 'a')
                         log_jpg.write(i)
                         log_jpg.close()

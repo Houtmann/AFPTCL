@@ -7,13 +7,13 @@ import os.path
 
 def search_moffice(arg):
     
-    moffice = b'PK\x03\x04' #Signature du Jpeg
+    moffice = b'PK\x03\x04\x14' #Signature du Jpeg
     tree_txt = open('tmp/log_tree.txt', 'r')
     for i in tree_txt.readlines():
             if i:
                 try:
                     file = open(i.strip('\n'), 'rb', buffering = 1)
-                    if moffice in file.read(5):
+                    if moffice in file.read(10):
                         log_jpg = open('tmp/log_moffice.txt', 'a')
                         log_jpg.write(i)
                         log_jpg.close()
