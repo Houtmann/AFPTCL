@@ -13,12 +13,12 @@ def search_jpeg(arg):
             if i:
                 try:
                     file = open(i.strip('\n'), 'rb', buffering = 1)
-                    for sign in jpeg:
-                        if sign in file.read(5):
-                            log_jpg = open('tmp/log_jpg.txt', 'a')
-                            log_jpg.write(i)
-                            log_jpg.close()
-                        file.close()
+                    
+                    if sign in file.read(5):
+                        log_jpg = open('tmp/log_jpg.txt', 'a')
+                        log_jpg.write(i)
+                        log_jpg.close()
+                    file.close()
                 except:
                     pass
 
