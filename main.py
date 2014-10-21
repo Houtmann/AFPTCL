@@ -15,40 +15,19 @@ from scripts.copy_files import copy_files
 from scripts.search_videos import search_videos
 from scripts.index_css import index_css
 from scripts.make_log import make_log
+from scripts.init_folder_files import *
+from scripts.search_moffice import search_moffice
 import sys
 import argparse
 import time
 import threading
 
-def make_dir():
-    path = os.path.abspath('.')
-    print(path)
-    try:
-        os.mkdir(path + '\\tmp')
-        tmp = path + '\\tmp'
-        os.mkdir(tmp + '\\jpg')
-        os.mkdir(tmp + '\\gif')
-        os.mkdir(tmp + '\\docs')
-        os.mkdir(tmp + '\\videos')
-        os.mkdir(tmp + '\\pdf')
-        os.mkdir(tmp + '\\png')
-    except:
-        pass
-make_dir()
 
+        
+make_dir() #Create folder
+create_log() #Create logs text files
+index_css() #Create a CSS file for reports
 
-def create_log(): #create txt files log
-    create_css = open(os.path.abspath('.') + '\\index.css', 'w')
-    create_tree = open(os.path.abspath('.') + '\\tmp\\log_tree.txt', 'w')
-    create_jpg = open(os.path.abspath('.') + '\\tmp\\log_jpg.txt', 'w')
-    create_gif = open(os.path.abspath('.') + '\\tmp\\log_gif.txt', 'w')
-    create_png = open(os.path.abspath('.') + '\\tmp\\log_png.txt', 'w')
-    create_docs = open(os.path.abspath('.') + '\\tmp\\log_docs.txt', 'w')
-    create_docs = open(os.path.abspath('.') + '\\tmp\\log_pdf.txt', 'w')
-    create_docs = open(os.path.abspath('.') + '\\tmp\\log_videos.txt', 'w')
-    
-create_log()
-index_css()
 clear = lambda: os.system('cls')
 clear()
 
@@ -92,12 +71,14 @@ if args.sf:
     docs = threading.Thread(target=search_docs, args=(args.cv,))
     pdf = threading.Thread(target=search_pdf, args=(args.cv,))
     videos = threading.Thread(target=search_videos)
+    moffice = threading.Thread(target=search_moffice(args.cv,))
     jpg.start()
     gif.start()
     png.start()
     docs.start()
     pdf.start()
     videos.start()
+    moffice.start()
     #search_jpeg(args.cv)
     #search_gif(args.cv)
     #search_png(args.cv)
@@ -110,6 +91,7 @@ if args.sf:
     docs.join()
     pdf.join()
     videos.join()
+    moffice.join()
 
    
      
@@ -135,6 +117,7 @@ print('')
 print('')
 print('Creating registre.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 
+user(args.p)
 boot(args.p)
 boot_2(args.p)
 usb_1(args.p)

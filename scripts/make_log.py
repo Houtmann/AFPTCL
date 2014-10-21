@@ -7,12 +7,12 @@ def make_log():
     report = open('Report.html', 'a')
     report.write('''<html>
         <head>
-	<title>Web Cookies</title>
+	<title>Report</title>
 	<link rel="stylesheet" type="text/css" href="index.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         </head>
         <body>
-        <div id="header">Firefox cookies</div>
+        <div id="header">Report</div>
         <div id="content">
         <table>
         <thead>
