@@ -1,7 +1,7 @@
 AFPT-CL
 ======
 
-##A forensic python tools command line is the same tools as AFPT in CLI
+##A forensic python tools command line 
 
 
 - Carves files (jpg, gif, pdf, png) and symlink or copy files to the tmp directory
