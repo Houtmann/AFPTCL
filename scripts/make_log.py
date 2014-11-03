@@ -1,9 +1,5 @@
-import os
-import sys
-
-
 def make_log():
-    
+
     report = open('Report.html', 'a')
     report.write('''<html>
         <head>
@@ -55,6 +51,3 @@ def make_log():
     report.write('''<tr><td>Nombres de Videos :</td> <td>{0}</td></tr>'''.format(len(log_videos)))
 
     report.write('''</table></div></body></html>''')
-
-        
-    

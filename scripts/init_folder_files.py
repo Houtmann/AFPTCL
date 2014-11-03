@@ -1,5 +1,6 @@
 import os
 
+
 def make_dir():
     """Create folders needed"""
     path = os.path.abspath('.')
@@ -17,7 +18,8 @@ def make_dir():
         os.mkdir(tmp + '/tiff')
     except:
         pass
-    
+
+
 def create_log():
     """Create files needed"""
     create_css = open(os.path.abspath('.') + '/index.css', 'w')
@@ -30,4 +32,3 @@ def create_log():
     create_docs = open(os.path.abspath('.') + '/tmp/log_videos.txt', 'w')
     create_docs = open(os.path.abspath('.') + '/tmp/log_moffice.txt', 'w')
     create_docs = open(os.path.abspath('.') + '/tmp/log_tiff.txt', 'w')
-    

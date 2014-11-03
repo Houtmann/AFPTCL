@@ -1,5 +1,6 @@
 """Create a index.css file, for design the html report"""
 
+
 def index_css():
     index_css = open('index.css', 'a')
     index_css.write("""body {margin: 0px; padding: 0px; background: #FFFFFF; font: 13px/20px Arial, Helvetica, sans-serif; color: #535353;}

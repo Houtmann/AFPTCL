@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
-from datetime import datetime
 from scripts.scan import scan
 from scripts.search_jpeg import search_jpeg
 from scripts.search_gif import search_gif
@@ -17,6 +15,7 @@ from scripts.index_css import index_css
 from scripts.make_log import make_log
 from scripts.init_folder_files import *
 from scripts.search_moffice import search_moffice
+from scripts.hash_all import *
 import sys
 import argparse
 import time
@@ -24,9 +23,10 @@ import threading
 
 
         
-make_dir() #Create folder
-create_log() #Create logs text files
+"""make_dir() #Create folder
+create_log() #Create logs text files"""
 index_css() #Create a CSS file for reports
+
 
 list_fonction = [search_jpeg, search_gif,search_png, search_docs,
                  search_pdf, search_videos]
@@ -50,6 +50,8 @@ parser.add_argument("-cv",action = "store_true",
 
 parser.add_argument("-sf",action = "store_false",
                                     help="Don't search files in disk")
+parser.add_argument("-hash",action = "store_true",
+                                    help="Hash all files of the disk and store it in db")
 args = parser.parse_args()
 
 
@@ -58,18 +60,24 @@ print('Starting disk scan...')
 print('')
 print('Creating log_tree.txt in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 
-scan(args.p) #Complete scan of disk
+"scan(args.p) #Complete scan of disk"
+
+if args.hash:
+    print('Hashing file...')
+    create_db()
+    hash_all()
 
 print('')
 print('')
-print('Search  files...')
-print('')
-print('Jpg, gif, png, docs, videos etc...')
-print('')
-print('Creating log_, in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
-print('')
+
                  
 if args.sf:
+    print('Search  files...')
+    print('')
+    print('Jpg, gif, png, docs, videos etc...')
+    print('')
+    print('Creating log_, in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
+    print('')
     for i in list_fonction:
         i = threading.Thread(target=i, args=(args.cv,))
         i.start()
@@ -81,7 +89,7 @@ if args.cv:
     print('')
     print('')
     
-clear()
+"""clear()
 
 print('Forensics Mozilla Firefox...')
 print('')
@@ -101,7 +109,7 @@ user(args.p)
 boot(args.p)
 boot_2(args.p)
 usb_1(args.p)
-make_log()
+make_log()"""
 
 
 
