@@ -19,12 +19,14 @@ def search_pdf(arg):
                         if sign  in file.read(4):
                             log_file = open('tmp/log_pdf.txt', 'a')
                             log_file.write(i)
+                            log_file.close()
+                        file.close()
                             
                     except:
                         pass
     tree_txt.close()                                                
     
-    if arg == True:
+    if arg:
         result = open('tmp/log_PDF.txt', 'r')
         for a in result:
             dest = '/tmp/jpg/' #Dossier de destination des liens sym pour les JPEG

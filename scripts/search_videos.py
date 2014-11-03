@@ -2,7 +2,7 @@ import os
 import sys
 import time
 
-def search_videos():
+def search_videos(arg):
         sign = [b'RIFF',
                 b'\x00\x00\x00 ftypisom' ,
                 b'\x1aE\xdf\xa3',
@@ -24,6 +24,8 @@ def search_videos():
                             list_file.append(i)
                             log_file = open('tmp/log_videos.txt', 'a')
                             log_file.write(i)
+                            log_file.close()
+                        file.close()
                 except:
                     pass
                                                     

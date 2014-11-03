@@ -1,12 +1,9 @@
 
 import os
 import sys
-import binascii
-import time
-import pdb
 import glob
 import shutil
-import os.path
+
 
 
 def search_png(arg):
@@ -21,12 +18,14 @@ def search_png(arg):
                         if sign  in file.read(5):
                             log_file = open('tmp/log_PNG.txt', 'a')
                             log_file.write(i)
+                            log_file.close()
+                        file.close()
                     except:
                         pass
     tree_txt.close()
                                       
     
-    if arg == True:
+    if arg:
         result = open('tmp/log_PNG.txt', 'r')
         for a in result:
             dest = '/tmp/png/' #Dossier de destination des liens sym pour les JPEG

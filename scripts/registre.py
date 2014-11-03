@@ -38,7 +38,7 @@ def user(adress):
                 report.write('<tr><td>{0}</tr>'.format(users_paths_list))
     except:
         pass
-    print (users_paths_list)
+
     
 
 

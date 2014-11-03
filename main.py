@@ -28,6 +28,9 @@ make_dir() #Create folder
 create_log() #Create logs text files
 index_css() #Create a CSS file for reports
 
+list_fonction = [search_jpeg, search_gif,search_png, search_docs,
+                 search_pdf, search_videos]
+
 clear = lambda: os.system('cls')
 clear()
 
@@ -54,6 +57,7 @@ args = parser.parse_args()
 print('Starting disk scan...')
 print('')
 print('Creating log_tree.txt in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
+
 scan(args.p) #Complete scan of disk
 
 print('')
@@ -64,37 +68,13 @@ print('Jpg, gif, png, docs, videos etc...')
 print('')
 print('Creating log_, in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 print('')
+                 
 if args.sf:
-    jpg = threading.Thread(target=search_jpeg, args=(args.cv,))
-    gif = threading.Thread(target=search_gif, args=(args.cv,))
-    png = threading.Thread(target=search_png, args=(args.cv,))
-    docs = threading.Thread(target=search_docs, args=(args.cv,))
-    pdf = threading.Thread(target=search_pdf, args=(args.cv,))
-    videos = threading.Thread(target=search_videos)
-    #moffice = threading.Thread(target=search_moffice(args.cv,))
-    jpg.start()
-    gif.start()
-    png.start()
-    docs.start()
-    pdf.start()
-    videos.start()
-    #moffice.start()
-    #search_jpeg(args.cv)
-    #search_gif(args.cv)
-    #search_png(args.cv)
-    #search_docs(args.cv)
-    #search_pdf(args.cv)
-    #search_videos()
-    jpg.join()
-    gif.join()
-    png.join()
-    docs.join()
-    pdf.join()
-    videos.join()
-    #moffice.join()
-    search_moffice()
-   
-     
+    for i in list_fonction:
+        i = threading.Thread(target=i, args=(args.cv,))
+        i.start()
+    i.join()
+        
 if args.cv:
     #copy_files()
     

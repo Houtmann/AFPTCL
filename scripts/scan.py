@@ -12,7 +12,7 @@ def scan(adress):
                 try:        
                     log = open(path + '\\tmp\\log_tree.txt', 'a')
                     list_test.append(os.path.join(root, file))
-                    sys.stdout.write("\r Nombre de fichiers trouvés: {0}".format(len(list_test)))
+                    sys.stdout.write("\rNombre de fichiers trouvés: {0}".format(len(list_test)))
                     log.write(os.path.join(root, file))
                     log.write("\n")
                     log.close()     
