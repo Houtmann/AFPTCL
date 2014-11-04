@@ -53,7 +53,7 @@ def make_log():
     report.write('''<tr><td>Nombres de GIF :</td> <td>{0}</td></tr>'''.format(len(log_gif)))
 
     log_png = []
-    for i in open('tmp/log_png.txt', 'r').readlines():
+    for i in open('tmp/log_PNG.txt', 'r').readlines():
         log_png.append(i)
     report.write('''<tr><td>Nombres de PNG :</td> <td>{0}</td></tr>'''.format(len(log_png)))
 

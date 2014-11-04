@@ -24,7 +24,7 @@ import sys
 
 
 scripts.make_dir() #Create folder
-scripts.create_log() #Create logs text files
+#scripts.create_log() #Create logs text files
 scripts.index_css() #Create a CSS file for reports
 
 
@@ -61,9 +61,9 @@ args = parser.parse_args()
 
 print('Starting disk scan...')
 print('')
-print('Creating log_tree.txt in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
+print('Creating log_tree.txt in {0}/tmp/ ...'.format(os.path.abspath('.')))
 
-scripts.scan(args.p) #Complete scan of disk"
+#scripts.scan(args.p) #Complete scan of disk"
 
 if args.hash:
     print('Hashing file...')
@@ -79,7 +79,7 @@ if args.sf:
     print('')
     print('Jpg, gif, png, docs, videos etc...')
     print('')
-    print('Creating log_, in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
+    print('Creating log_, in {0}/tmp/ ...'.format(os.path.abspath('.')))
     print('')
     for i in list_fonction:
         i = threading.Thread(target=i, args=(args.cv,))
@@ -95,7 +95,7 @@ clear()
 
 print('Forensics Mozilla Firefox...')
 print('')
-print('Creating moz_ccokies.html and moz_forms.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
+print('Creating moz_ccokies.html and moz_forms.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
 
 scripts.moz_cookies()
 scripts.moz_form()
@@ -105,9 +105,9 @@ print('')
 print('Forensics Windows registry...')
 print('')
 print('')
-print('Creating registre.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
+print('Creating registre.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
 
-scripts.user(args.p)
+
 scripts.boot(args.p)
 scripts.boot_2(args.p)
 scripts.usb_1(args.p)
