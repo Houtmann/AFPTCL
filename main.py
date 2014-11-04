@@ -23,8 +23,8 @@ import threading
 
 
         
-"""make_dir() #Create folder
-create_log() #Create logs text files"""
+make_dir() #Create folder
+create_log() #Create logs text files
 index_css() #Create a CSS file for reports
 
 
@@ -51,7 +51,7 @@ parser.add_argument("-cv",action = "store_true",
 parser.add_argument("-sf",action = "store_false",
                                     help="Don't search files in disk")
 parser.add_argument("-hash",action = "store_true",
-                                    help="Hash all files of the disk and store it in db")
+                                    help="Hash all files of the disk and store it in sqlite3 db")
 args = parser.parse_args()
 
 
@@ -89,7 +89,7 @@ if args.cv:
     print('')
     print('')
     
-"""clear()
+clear()
 
 print('Forensics Mozilla Firefox...')
 print('')
@@ -109,7 +109,7 @@ user(args.p)
 boot(args.p)
 boot_2(args.p)
 usb_1(args.p)
-make_log()"""
+make_log()
 
 
 
