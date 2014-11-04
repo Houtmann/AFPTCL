@@ -20,6 +20,7 @@ import os
 import argparse
 import threading
 import scripts
+import sys
 
 
 scripts.make_dir() #Create folder
@@ -30,8 +31,11 @@ scripts.index_css() #Create a CSS file for reports
 list_fonction = [scripts.search_jpeg, scripts.search_gif,scripts.search_png, scripts.search_docs,
                  scripts.search_pdf, scripts.search_videos]
 
-clear = lambda: os.system('cls')
-clear()
+if 'win' in sys.platform:
+    clear = lambda: os.system('cls')
+    clear()
+else:
+    clear = lambda: os.system('clear')
 
 print('==========================================================')
 print('============            AFPT  v1.0            ============ ')
