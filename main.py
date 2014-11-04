@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#By hadmagic
+# By hadmagic
 # This file is part of AFPT.
 
 # AFPT is free software: you can redistribute it and/or modify
