@@ -23,6 +23,7 @@ import scripts
 import sys
 
 
+
 scripts.make_dir() #Create folder
 scripts.create_log() #Create logs text files
 scripts.index_css() #Create a CSS file for reports
@@ -38,6 +39,7 @@ if 'win' in sys.platform:
     clear()
 else:
     clear = lambda: os.system('clear')
+    clear()
 
 print('==========================================================')
 print('============            AFPT  v1.0            ============ ')
