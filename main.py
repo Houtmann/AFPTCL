@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
-from scripts.scan import scan
+
+# This file is part of AFPT.
+
+# AFPT is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# AFPT is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with AFPT.  If not, see <http://www.gnu.org/licenses/>
+# You can read the license.txt in parent directory
+
+"""from scripts.scan import scan
 from scripts.search_jpeg import search_jpeg
 from scripts.search_gif import search_gif
 from scripts.search_png import search_png
@@ -15,21 +32,21 @@ from scripts.index_css import index_css
 from scripts.make_log import make_log
 from scripts.init_folder_files import *
 from scripts.search_moffice import search_moffice
-from scripts.hash_all import *
-import sys
+from scripts.hash_all import *"""
+import os
 import argparse
-import time
 import threading
+import scripts
 
 
-        
-make_dir() #Create folder
-create_log() #Create logs text files
-index_css() #Create a CSS file for reports
+
+scripts.make_dir() #Create folder
+scripts.create_log() #Create logs text files
+scripts.index_css() #Create a CSS file for reports
 
 
-list_fonction = [search_jpeg, search_gif,search_png, search_docs,
-                 search_pdf, search_videos]
+list_fonction = [scripts.search_jpeg, scripts.search_gif,scripts.search_png, scripts.search_docs,
+                 scripts.search_pdf, scripts.search_videos]
 
 clear = lambda: os.system('cls')
 clear()
@@ -60,12 +77,12 @@ print('Starting disk scan...')
 print('')
 print('Creating log_tree.txt in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 
-"scan(args.p) #Complete scan of disk"
+scripts.scan(args.p) #Complete scan of disk"
 
 if args.hash:
     print('Hashing file...')
-    create_db()
-    hash_all()
+    scripts.create_db()
+    scripts.hash_all()
 
 print('')
 print('')
@@ -85,7 +102,6 @@ if args.sf:
         
 if args.cv:
     #copy_files()
-    
     print('')
     print('')
     
@@ -95,8 +111,8 @@ print('Forensics Mozilla Firefox...')
 print('')
 print('Creating moz_ccokies.html and moz_forms.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 
-moz_cookies()
-moz_form()
+scripts.moz_cookies()
+scripts.moz_form()
 
 print('')
 print('')
@@ -105,11 +121,11 @@ print('')
 print('')
 print('Creating registre.html in {0}\\tmp\\ ...'.format(os.path.abspath('.')))
 
-user(args.p)
-boot(args.p)
-boot_2(args.p)
-usb_1(args.p)
-make_log()
+scripts.user(args.p)
+scripts.boot(args.p)
+scripts.boot_2(args.p)
+scripts.usb_1(args.p)
+scripts.make_log()
 
 
 
