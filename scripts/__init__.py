@@ -20,6 +20,7 @@ from .scan import  scan
 from .search_jpeg import search_jpeg
 from .search_gif import search_gif
 from .search_png import search_png
+from .search_tiff import search_tiff
 from .search_docs import search_docs
 from .search_pdf import search_pdf
 from .registre import usb_1, boot, boot_2

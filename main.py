@@ -28,8 +28,10 @@ scripts.create_log() #Create logs text files
 scripts.index_css() #Create a CSS file for reports
 
 
-list_fonction = [scripts.search_jpeg, scripts.search_gif,scripts.search_png, scripts.search_docs,
-                 scripts.search_pdf, scripts.search_videos]
+list_fonction = [scripts.search_jpeg, scripts.search_gif,
+                 scripts.search_png, scripts.search_docs,
+                 scripts.search_pdf, scripts.search_videos,
+                 scripts.search_tiff]
 
 if 'win' in sys.platform:
     clear = lambda: os.system('cls')
