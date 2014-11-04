@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+#By hadmagic
 # This file is part of AFPT.
 
 # AFPT is free software: you can redistribute it and/or modify
@@ -16,28 +16,10 @@
 # along with AFPT.  If not, see <http://www.gnu.org/licenses/>
 # You can read the license.txt in parent directory
 
-"""from scripts.scan import scan
-from scripts.search_jpeg import search_jpeg
-from scripts.search_gif import search_gif
-from scripts.search_png import search_png
-from scripts.search_docs import search_docs
-from scripts.search_pdf import search_pdf
-#from scripts.listdisks import *
-from scripts.registre import *
-from scripts.moz_cookies import moz_cookies
-from scripts.moz_form import moz_form
-from scripts.copy_files import copy_files
-from scripts.search_videos import search_videos
-from scripts.index_css import index_css
-from scripts.make_log import make_log
-from scripts.init_folder_files import *
-from scripts.search_moffice import search_moffice
-from scripts.hash_all import *"""
 import os
 import argparse
 import threading
 import scripts
-
 
 
 scripts.make_dir() #Create folder
