@@ -24,7 +24,7 @@ import sys
 
 
 scripts.make_dir() #Create folder
-#scripts.create_log() #Create logs text files
+scripts.create_log() #Create logs text files
 scripts.index_css() #Create a CSS file for reports
 
 
@@ -63,7 +63,7 @@ print('Starting disk scan...')
 print('')
 print('Creating log_tree.txt in {0}/tmp/ ...'.format(os.path.abspath('.')))
 
-#scripts.scan(args.p) #Complete scan of disk"
+scripts.scan(args.p) #Complete scan of disk"
 
 if args.hash:
     print('Hashing file...')
