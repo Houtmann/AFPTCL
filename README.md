@@ -3,7 +3,7 @@ AFPT-CL
 
 ##A forensic python tools command line 
 
-# Update 11/2014:
+### Update 11/2014:
 New features : -hash for hash all files of the disk in sqlite3 database
 
 
