@@ -21,12 +21,19 @@ from PIL.ExifTags import TAGS
 
 
 def get_exif(fn):
+    print('\n'+ fn)
     ret = {}
     i = Image.open(fn)
     info = i._getexif()
+    #print(TAGS)
     for tag, value in info.items():
-        if TAGS.get(tag) == 'DateTimeDigitized':
-            print(value)
-    return ret
+
+        ex = TAGS.get(tag)
+        if ex == 'MarkedNote':
+            pass
+        else:
+            print(str(ex) +' : ' + str(value))
+
+    #return ret
 
 

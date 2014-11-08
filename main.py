@@ -45,7 +45,16 @@ print('==========================================================')
 print('============            AFPT  v1.0            ============ ')
 print('==========================================================')
 print('')
-print('')
+print('''usage: main.py [-h] [-p PATH] [-cv] [-sf] [-hash] [-e EXIF]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  precise path of disk
+  -cv                   Copy videos files in tmp dir
+  -sf                   Don't search files in disk
+  -hash                 Hash all files of the disk and store it in sqlite3 db
+  -e EXIF, --exif EXIF  Get exif informations on specified jpeg image
+''')
 
 #Arguments parser#
 parser = argparse.ArgumentParser()
@@ -56,9 +65,10 @@ parser.add_argument("-sf",action = "store_false",
                                     help="Don't search files in disk")
 parser.add_argument("-hash",action = "store_true",
                                     help="Hash all files of the disk and store it in sqlite3 db")
-parser.add_argument("-exif",action = "store_true",
+parser.add_argument("-e", "--exif" ,action = "store",
                                     help="Get exif informations on specified jpeg image")
 args = parser.parse_args()
+
 
 
 if args.path:
@@ -67,53 +77,57 @@ if args.path:
     print('Creating log_tree.txt in {0}/tmp/ ...'.format(os.path.abspath('.')))
     scripts.scan(args.path) #Complete scan of disk"
 
-if args.hash:
-    print('Hashing file...')
-    scripts.create_db()
-    scripts.hash_all()
+    if args.hash:
+        print('Hashing file...')
+        scripts.create_db()
+        scripts.hash_all()
 
-print('')
-print('')
+    print('')
+    print('')
 
                  
-if args.sf:
-    print('Search  files...')
-    print('')
-    print('Jpg, gif, png, docs, videos etc...')
-    print('')
-    print('Creating log_, in {0}/tmp/ ...'.format(os.path.abspath('.')))
-    print('')
-    for i in list_fonction:
-        i = threading.Thread(target=i, args=(args.cv,))
-        i.start()
-    i.join()
-        
+    if args.sf:
+        print('Search  files...')
+        print('')
+        print('Jpg, gif, png, docs, videos etc...')
+        print('')
+        print('Creating log_, in {0}/tmp/ ...'.format(os.path.abspath('.')))
+        print('')
+        for i in list_fonction:
+            i = threading.Thread(target=i, args=(args.cv,))
+            i.start()
+        i.join()
+
+
+        print('Forensics Mozilla Firefox...')
+        print('')
+        print('Creating moz_ccokies.html and moz_forms.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
+
+        scripts.moz_cookies()
+        scripts.moz_form()
+
+        print('')
+        print('')
+        print('Forensics Windows registry...')
+        print('')
+        print('')
+        print('Creating registre.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
+
+
+        scripts.boot(args.p)
+        scripts.boot_2(args.p)
+        scripts.usb_1(args.p)
+        scripts.make_log()
+
 if args.cv:
     #copy_files()
     print('')
     print('')
-    
-clear()
 
-print('Forensics Mozilla Firefox...')
-print('')
-print('Creating moz_ccokies.html and moz_forms.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
+if args.exif:
+    scripts.get_exif(args.exif)
+#clear()
 
-scripts.moz_cookies()
-scripts.moz_form()
-
-print('')
-print('')
-print('Forensics Windows registry...')
-print('')
-print('')
-print('Creating registre.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
-
-
-scripts.boot(args.p)
-scripts.boot_2(args.p)
-scripts.usb_1(args.p)
-scripts.make_log()
 
 
 
