@@ -49,20 +49,20 @@ print('''usage: main.py [-h] [-p PATH] [-cv] [-sf] [-hash] [-e EXIF]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -p PATH, --path PATH  precise path of disk
+  -p PATH, --path PATH  start a disk scan of path, precise path of disk
   -cv                   Copy videos files in tmp dir
-  -sf                   Don't search files in disk
+  -sf                   Don't search files in disk(images, docs, videos etc...
   -hash                 Hash all files of the disk and store it in sqlite3 db
   -e EXIF, --exif EXIF  Get exif informations on specified jpeg image
 ''')
 
 #Arguments parser#
 parser = argparse.ArgumentParser()
-parser.add_argument("-p", "--path", action = 'store', help="precise path of disk")
+parser.add_argument("-p", "--path", action = 'store', help="start a disk scan of path, precise path of disk")
 parser.add_argument("-cv",action = "store_true",
                                     help="Copy videos files in tmp dir")
 parser.add_argument("-sf",action = "store_false",
-                                    help="Don't search files in disk")
+                                    help="Don't search files in disk(images, docs, videos etc...")
 parser.add_argument("-hash",action = "store_true",
                                     help="Hash all files of the disk and store it in sqlite3 db")
 parser.add_argument("-e", "--exif" ,action = "store",
@@ -78,7 +78,7 @@ if args.path:
     scripts.scan(args.path) #Complete scan of disk"
 
     if args.hash:
-        print('Hashing file...')
+        print('\n'+'Hashing file...')
         scripts.create_db()
         scripts.hash_all()
 

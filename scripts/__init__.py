@@ -32,7 +32,7 @@ from .index_css import index_css
 from .make_log import make_log
 from .init_folder_files import make_dir, create_log
 from .search_moffice import search_moffice
-from .hash_all import hash_all
+from .hash_all import hash_all, create_db
 from .exif import get_exif
 
 __all__ = ['search_jpeg', 'search_gif',
@@ -44,5 +44,5 @@ __all__ = ['search_jpeg', 'search_gif',
            'search_moffice', 'hash_all',
            'scan', 'make_dir', 'create_log',
            'usb_1', 'boot', 'boot_2',
-           'get_exif']
+           'get_exif', 'search_tiff', 'create_db']
 
