@@ -15,9 +15,12 @@
 # You can read the license.txt in parent directory
 
 __author__ = 'hadmagic'
-
-from PIL import Image
-from PIL.ExifTags import TAGS
+import os
+try:
+    from PIL import Image
+    from PIL.ExifTags import TAGS
+except:
+    os.system('pip install pillow')
 
 
 def get_exif(fn):
