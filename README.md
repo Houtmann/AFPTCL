@@ -15,4 +15,12 @@ Need python < 3.3
 
 
 
-Usage : python main.py path
+Usage : python main.py
+
+- optional arguments:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  precise path of disk
+  -cv                   Copy videos files in tmp dir
+  -sf                   Don't search files in disk
+  -hash                 Hash all files of the disk and store it in sqlite3 db
+  -exif                 Get exif informations on specified jpeg image
