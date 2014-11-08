@@ -33,6 +33,7 @@ from .make_log import make_log
 from .init_folder_files import make_dir, create_log
 from .search_moffice import search_moffice
 from .hash_all import hash_all
+from .exif import get_exif
 
 __all__ = ['search_jpeg', 'search_gif',
            'search_png', 'search_docs',
@@ -42,5 +43,6 @@ __all__ = ['search_jpeg', 'search_gif',
            'make_log', 'init_folder_files',
            'search_moffice', 'hash_all',
            'scan', 'make_dir', 'create_log',
-           'usb_1', 'boot', 'boot_2']
+           'usb_1', 'boot', 'boot_2',
+           'get_exif']
 

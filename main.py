@@ -49,25 +49,23 @@ print('')
 
 #Arguments parser#
 parser = argparse.ArgumentParser()
-
-parser.add_argument("p", help="precise path of disk")
-
+parser.add_argument("-p", "--path", action = 'store', help="precise path of disk")
 parser.add_argument("-cv",action = "store_true",
                                     help="Copy videos files in tmp dir")
-
 parser.add_argument("-sf",action = "store_false",
                                     help="Don't search files in disk")
 parser.add_argument("-hash",action = "store_true",
                                     help="Hash all files of the disk and store it in sqlite3 db")
+parser.add_argument("-exif",action = "store_true",
+                                    help="Get exif informations on specified jpeg image")
 args = parser.parse_args()
 
 
-
-print('Starting disk scan...')
-print('')
-print('Creating log_tree.txt in {0}/tmp/ ...'.format(os.path.abspath('.')))
-
-scripts.scan(args.p) #Complete scan of disk"
+if args.path:
+    print('Starting disk scan...')
+    print('')
+    print('Creating log_tree.txt in {0}/tmp/ ...'.format(os.path.abspath('.')))
+    scripts.scan(args.path) #Complete scan of disk"
 
 if args.hash:
     print('Hashing file...')
