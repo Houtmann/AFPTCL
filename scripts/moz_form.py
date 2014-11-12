@@ -16,6 +16,8 @@
 
 import re
 import sqlite3
+import os.path
+import shutil
 
 
 def moz_form():
@@ -26,11 +28,16 @@ def moz_form():
 
     for line in tree:
 
-        t = re.match(r".*\\Users\\.*\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\.*\\formhistory.sqlite\s",
+        t = re.match(r".*Users\\.*\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\.*\\formhistory.sqlite\s",
                      line)  # Cherche la base cookies de mozilla
         if t:
             path = str(line)
-            conn = sqlite3.connect(path.strip('\n'))
+            tempath = os.path.abspath('.')
+            
+            shutil.copy(path.strip('\n'), tempath + '/tmp/mozdb/')
+            
+
+            conn = sqlite3.connect(tempath + '/tmp/mozdb/formhistory.sqlite')
             c = conn.cursor()
             c.execute('select fieldname, value from moz_formhistory')
 

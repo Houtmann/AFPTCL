@@ -17,6 +17,8 @@
 import re
 import sqlite3
 import time
+import shutil
+import os.path
 
 
 def moz_cookies():
@@ -27,12 +29,17 @@ def moz_cookies():
     tree = open("tmp/log_tree.txt", "r")
 
     for line in tree:
-        t = re.match(r".*\\Users\\.*\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\.*\\cookies.sqlite\s",
-                     line)  # Cherche la base cookies de mozilla
+        t = re.match(r".*Users\\.*\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\.*\\cookies.sqlite\s",line)
+        # Cherche la base cookies de mozilla
+        
         if t:
             path = str(line)
+            
+            tempath = os.path.abspath('.')
+            shutil.copy(path.strip('\n'), tempath + '/tmp/mozdb/')
+            
 
-            conn = sqlite3.connect(path.strip('\n'))
+            conn = sqlite3.connect(tempath + '/tmp/mozdb/cookies.sqlite')
             c = conn.cursor()
             c.execute('select baseDomain, lastAccessed/1000000 from moz_cookies')
             for row in c:
@@ -71,5 +78,3 @@ def moz_cookies():
 
     report.write('''</table></div></body></html>''')
                  
-    
-

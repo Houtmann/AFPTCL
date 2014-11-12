@@ -21,7 +21,7 @@ import os.path
 
 
 def search_moffice(arg):
-    moffice = b'PK\x03\x04\x14'  # Signature
+    moffice = [b'PK\x03\x04\x14', ]
     tree_txt = open('tmp/log_tree.txt', 'r')
     for i in tree_txt.readlines():
         if i:

@@ -22,6 +22,7 @@ import sys
 
 def scan(adress):
     path = os.path.abspath('.')
+    
     list_test = []
     for root, dirs, files in os.walk(adress):  # Parcours le disque
         for file in files:
