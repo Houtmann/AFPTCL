@@ -32,6 +32,7 @@ def make_dir():
         os.mkdir(tmp + '/png')
         os.mkdir(tmp + '/moffice')
         os.mkdir(tmp + '/tiff')
+        os.mkdir(tmp + '/mozdb')
     except:
         pass
 

@@ -36,7 +36,7 @@ def moz_cookies():
             path = str(line)
             
             tempath = os.path.abspath('.')
-            shutil.copy(path.strip('\n'), tempath + '/tmp/mozdb/')
+            shutil.copy(path.strip('\n'), tempath + '/tmp/mozdb')
             
 
             conn = sqlite3.connect(tempath + '/tmp/mozdb/cookies.sqlite')

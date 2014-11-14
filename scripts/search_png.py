@@ -27,7 +27,7 @@ def search_png(arg):
         if i:
             try:
                 file = open(i.strip('\n'), 'rb', buffering=1)
-                if sign in file.read(5):
+                if sign in file.read(4):
                     log_file = open('tmp/log_PNG.txt', 'a')
                     log_file.write(i)
                     log_file.close()

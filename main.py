@@ -98,26 +98,26 @@ if args.path:
             i.start()
         i.join()
 
+if args.path:
+    print('Forensics Mozilla Firefox...')
+    print('')
+    print('Creating moz_ccokies.html and moz_forms.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
 
-print('Forensics Mozilla Firefox...')
-print('')
-print('Creating moz_ccokies.html and moz_forms.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
+    scripts.moz_cookies()
+    scripts.moz_form()
 
-scripts.moz_cookies()
-scripts.moz_form()
-
-print('')
-print('')
-print('Forensics Windows registry...')
-print('')
-print('')
-print('Creating registre.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
+    print('')
+    print('')
+    print('Forensics Windows registry...')
+    print('')
+    print('')
+    print('Creating registre.html in {0}/tmp/ ...'.format(os.path.abspath('.')))
 
 
-scripts.boot(args.path)
-scripts.boot_2(args.path)
-scripts.usb_1(args.path)
-scripts.make_log()
+    scripts.boot(args.path)
+    scripts.boot_2(args.path)
+    scripts.usb_1(args.path)
+    scripts.make_log()
 
 if args.cv:
     #copy_files()
