@@ -53,7 +53,7 @@ optional arguments:
   -cv                   Copy videos files in tmp dir
   -sf                   Don't search files in disk(images, docs, videos etc...
   -hash                 Hash all files of the disk and store it in sqlite3 db
-  -e EXIF, --exif EXIF  Get exif informations on specified jpeg image
+  -e EXIF, --exif EXIF  Get exif informations on specified jpeg image type between \"C:/../.. \"
 ''')
 
 #Arguments parser#
@@ -66,7 +66,7 @@ parser.add_argument("-sf",action = "store_false",
 parser.add_argument("-hash",action = "store_true",
                                     help="Hash all files of the disk and store it in sqlite3 db")
 parser.add_argument("-e", "--exif" ,action = "store",
-                                    help="Get exif informations on specified jpeg image")
+                                    help="Get exif informations on specified jpeg image type between \"C:/../.. \"")
 args = parser.parse_args()
 
 

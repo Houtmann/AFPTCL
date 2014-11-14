@@ -25,15 +25,13 @@ def get_exif(fn):
     ret = {}
     i = Image.open(fn)
     info = i._getexif()
-    #print(TAGS)
+    result = {}
     for tag, value in info.items():
-
         ex = TAGS.get(tag)
-        if ex == 'MarkedNote':
-            pass
-        else:
-            print(str(ex) +' : ' + str(value))
-
-    #return ret
+        result[str(ex)] = str(value)
+       
+    del result['MakerNote'] #Del MakerNote keys because it's not very important.
+    for i, p  in result.items():
+        print(i + ' : ' + p)
 
 
